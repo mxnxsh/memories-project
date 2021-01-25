@@ -48,7 +48,7 @@ function Form({ currentId, setCurrentId }) {
         ></TextField>
         <TextField name="message" variant='outlined' label='Message' fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })}
         ></TextField>
-        <TextField name="tags" variant='outlined' label='Tags' fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+        <TextField name="tags" variant='outlined' label='Tags' fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })}
         ></TextField>
         <div className={classes.fileInput}>
           <FileBase

@@ -1,13 +1,15 @@
+import { CREATE, DELETE, FETCH_ALL, UPDATE } from "../constants/actionTypes";
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (posts = [], action) => {
   switch (action.type) {
-    case 'UPDATE':
+    case UPDATE:
       return posts.map((post) => post._id === action.payload._id ? action.payload : post);
-    case 'FETCH_ALL':
+    case FETCH_ALL:
       return action.payload;
-    case 'DELETE':
+    case DELETE:
       return posts.filter((post) => post._id !== action.payload);
-    case 'CREATE':
+    case CREATE:
       return [...posts, action.payload];
     default:
       return posts;
